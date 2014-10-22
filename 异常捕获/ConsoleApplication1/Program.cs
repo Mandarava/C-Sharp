@@ -17,15 +17,14 @@ namespace ConsoleApplication1
 
             try
             {
-                DivideValue = dividend / divisor1; //(1)  
-                //DivideValue=dividend/divisor2; //(2)  
-                System.Console.WriteLine("DivideValue={0}", DivideValue);//（3）这一行将不会被执行。  
+                DivideValue = dividend / divisor1;  
+                System.Console.WriteLine("DivideValue={0}", DivideValue);//这一行将不会被执行。  
             }
             catch(Exception e)
             {
                 //System.Console.WriteLine("传递过来的异常值为：{0}", e);
                 DivideValue = dividend / divisor2;
-                System.Console.WriteLine("DivideValue={0}", DivideValue);//（3）这一行将不会被执行
+                System.Console.WriteLine("DivideValue={0}", DivideValue);
             }
             finally
             {
