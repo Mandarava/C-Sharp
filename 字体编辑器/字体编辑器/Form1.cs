@@ -55,6 +55,7 @@ namespace 字体编辑器
                 richTextBox1.Font = new Font(richTextBox1.Font, richTextBox1.Font.Style | FontStyle.Italic);
             else
                 richTextBox1.Font = new Font(richTextBox1.Font, richTextBox1.Font.Style ^ FontStyle.Italic);
+            //richTextBox1.Font = new Font(richTextBox1.Font, richTextBox1.Font.Style &~ FontStyle.Italic);  &~  ^ 不祥
         }
 
         private void bold_CheckedChanged(object sender, EventArgs e)
