@@ -72,13 +72,7 @@ namespace 计算器
                 case "CE":
                     richTextBox1.Text = "";//清除文本框内容
                     break;
-
-
-
             }
         }
-
-
-
     }
 }
