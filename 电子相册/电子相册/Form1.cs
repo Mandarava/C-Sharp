@@ -31,7 +31,7 @@ namespace 电子相册
             if (listBox1.Items.Count == 0)
             {
                 MessageBox.Show("请打开文件!");
-                openFile();
+                return;
             }
 
             bStatus = !bStatus;
@@ -55,11 +55,7 @@ namespace 电子相册
             string s = listBox1.SelectedItem.ToString(); // 得到某一要显示图片的路径
             pictureBox1.Image = Image.FromFile(s); // 加载图片
             PicNo = PicNo + 1; // 为得到下一张图片做准备
-            if (PicNo >= listBox1.Items.Count)
-            {
-                // 如果是最后一张，则转为第一张
-                PicNo = 0;
-            }
+            PicNo = PicNo%listBox1.Items.Count;
         }
 
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
