@@ -17,18 +17,20 @@ namespace 图书信息管理
         {
             InitializeComponent();
         }
+
         private SqlConnection con;
         private DataSet dataSet;
         private SqlDataAdapter sqlDataAdapter;
         private SqlDataReader sqlDataReader;
         private SqlCommand sqlCommand;
+
         private void PubInfo_Load(object sender, EventArgs e)
         {
-            con=new SqlConnection("Server=.;Initial Catalog=Library;Integrated Security=SSPI");
+            con = new SqlConnection("Server=.;Initial Catalog=Library;Integrated Security=SSPI");
             con.Open();
-            dataSet=new DataSet();
+            dataSet = new DataSet();
             string strSQL = "Select * from PubInfo";
-            sqlCommand=new SqlCommand(strSQL,con);
+            sqlCommand = new SqlCommand(strSQL, con);
             sqlDataReader = sqlCommand.ExecuteReader();
             while (sqlDataReader.Read())
             {
@@ -40,26 +42,29 @@ namespace 图书信息管理
                 textBox6.Text = sqlDataReader["cptel"].ToString();
             }
             con.Close();
-
         }
+
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            string sqlstr = "insert into PubInfo Values('" + textBox1.Text + "','" + textBox4.Text + "','" + textBox2.Text + "','" + textBox5.Text + "','" + textBox3.Text + "'," + textBox6.Text + ")";
+            string sqlstr = "insert into PubInfo Values('" + textBox1.Text + "','" + textBox4.Text + "','" +
+                            textBox2.Text + "','" + textBox5.Text + "','" + textBox3.Text + "'," + textBox6.Text + ")";
             SqlOperation(sqlstr);
         }
 
-         private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             string sqlstr = "update PubInfo SET pubid='" + textBox1.Text + "'" + "," + "pubname='" + textBox4.Text +
-                                "'" + "," + "pubcity='" + textBox2.Text + "'" + "," + "ADDRESSS='" + textBox5.Text + "'" +
-                                "," + "cperson='" + textBox3.Text + "'" + "," + "cptel='" + textBox6.Text + "'" +
-                                "where pubid='" + textBox1.Text + "'";
+                            "'" + "," + "pubcity='" + textBox2.Text + "'" + "," + "ADDRESSS='" + textBox5.Text + "'" +
+                            "," + "cperson='" + textBox3.Text + "'" + "," + "cptel='" + textBox6.Text + "'" +
+                            "where pubid='" + textBox1.Text + "'";
             SqlOperation(sqlstr);
-        }      
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "")
@@ -71,7 +76,7 @@ namespace 图书信息管理
             con.Open();
             try
             {
-                string sqlstr = "DELETE FROM PubInfo WHERE pubid='"+textBox1.Text+"'";
+                string sqlstr = "DELETE FROM PubInfo WHERE pubid='" + textBox1.Text + "'";
                 sqlCommand = new SqlCommand(sqlstr, con);
                 int r = sqlCommand.ExecuteNonQuery();
                 if (r == 1)
@@ -83,11 +88,44 @@ namespace 图书信息管理
                 MessageBox.Show(error.Message);
                 if (con.State == ConnectionState.Open)
                 {
-                    con.Close();  
+                    con.Close();
                 }
-                
             }
             textBox1.Text = "";
+        }
+
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dataSet.Clear();
+                con = new SqlConnection("Server=.;Initial Catalog=Library;Integrated Security=SSPI");
+                con.Open();
+                sqlCommand = new SqlCommand("SELECT * FROM PubInfo", con);
+                sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                sqlCommand.ExecuteReader();
+                con.Close();
+                dataSet = new DataSet();
+                sqlDataAdapter.Fill(dataSet, "PubInfo");
+                dataGridView1.DataSource = dataSet;
+                dataGridView1.DataMember = "PubInfo";
+                string[] HeaderText = {"编号", "名称", "所在城市", "地址", "联系人", "联系电话"};
+                int[] width = {90, 140, 75, 150, 100, 120};
+                for (int i = 0; i < 6; i++)
+                {
+                    dataGridView1.Columns[i].HeaderText = HeaderText[i];
+                    dataGridView1.Columns[i].Width = width[i];
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
         }
 
         private void SqlOperation(string sqlstr)
@@ -116,49 +154,19 @@ namespace 图书信息管理
                     con.Close();
                 }
             }
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox4.Text = "";
-            textBox5.Text = "";
-            textBox6.Text = "";
+            ClearText(this);
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void ClearText(Control ctrlTop)
         {
-            try
+            if (ctrlTop.GetType() == typeof (TextBox))
+                ctrlTop.Text = "";
+            else
             {
-                dataSet.Clear();
-                con = new SqlConnection("Server=.;Initial Catalog=Library;Integrated Security=SSPI");
-                con.Open();
-                sqlCommand = new SqlCommand("SELECT * FROM PubInfo", con);
-                sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-                sqlCommand.ExecuteReader();
-                con.Close();
-                dataSet = new DataSet();
-                sqlDataAdapter.Fill(dataSet, "PubInfo");
-                dataGridView1.DataSource = dataSet;
-                dataGridView1.DataMember = "PubInfo";
-                dataGridView1.Columns[0].HeaderText = "编号";
-                dataGridView1.Columns[1].HeaderText = "名称";
-                dataGridView1.Columns[2].HeaderText = "所在城市";
-                dataGridView1.Columns[3].HeaderText = "地址";
-                dataGridView1.Columns[4].HeaderText = "联系人";
-                dataGridView1.Columns[5].HeaderText = "联系电话";
-                dataGridView1.Columns[0].Width = 90;
-                dataGridView1.Columns[1].Width = 140;
-                dataGridView1.Columns[2].Width = 75;
-                dataGridView1.Columns[3].Width = 150;
-                dataGridView1.Columns[4].Width = 100;
-                dataGridView1.Columns[5].Width = 120;
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show(error.Message);
-                if (con.State == ConnectionState.Open)
+                foreach (Control ctrl in ctrlTop.Controls)
                 {
-                    con.Close();
-                } 
+                    ClearText(ctrl); //循环调用
+                }
             }
         }
     }
