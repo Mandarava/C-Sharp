@@ -13,9 +13,6 @@ namespace 旅游景点资源管理系统
     public partial class F_Login : Form
     {
         private SqlConnection con;
-        private DataSet dataSet;
-        private SqlDataAdapter sqlDataAdapter;
-        private SqlDataReader sqlDataReader;
         private SqlCommand sqlCommand;
         public F_Login()
         {
@@ -60,7 +57,10 @@ namespace 旅游景点资源管理系统
             }
             else
             {
-                MessageBox.Show("登陆成功！");
+                //MessageBox.Show("登陆成功！");
+                this.Hide();
+                F_Main f_main=new F_Main();
+                f_main.ShowDialog();
             }
         }
 
