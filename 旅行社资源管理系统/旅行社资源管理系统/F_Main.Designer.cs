@@ -51,8 +51,6 @@
             this.tourNum = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tourSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnShow2 = new System.Windows.Forms.Button();
@@ -63,14 +61,14 @@
             this.btnDel2 = new System.Windows.Forms.Button();
             this.btnAdd2 = new System.Windows.Forms.Button();
             this.btnReset2 = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
+            this.lblempAge = new System.Windows.Forms.Label();
             this.empWorkAge = new System.Windows.Forms.TextBox();
             this.empSex = new System.Windows.Forms.TextBox();
             this.empName = new System.Windows.Forms.TextBox();
             this.empID = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lblEmpSex = new System.Windows.Forms.Label();
+            this.lblempName = new System.Windows.Forms.Label();
+            this.lblempID = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -95,11 +93,11 @@
             this.hotelName = new System.Windows.Forms.TextBox();
             this.btnSearch3 = new System.Windows.Forms.Button();
             this.hotelSearch = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnSearch = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -135,7 +133,6 @@
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Controls.Add(this.tourSearch);
             this.tabPage1.Controls.Add(this.btnSearch);
-            this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
@@ -173,7 +170,7 @@
             // tourPrice
             // 
             this.tourPrice.BackColor = System.Drawing.SystemColors.Control;
-            this.tourPrice.Location = new System.Drawing.Point(99, 162);
+            this.tourPrice.Location = new System.Drawing.Point(98, 170);
             this.tourPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tourPrice.Name = "tourPrice";
             this.tourPrice.Size = new System.Drawing.Size(207, 25);
@@ -182,7 +179,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(26, 11);
+            this.label18.Location = new System.Drawing.Point(26, 6);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(67, 15);
             this.label18.TabIndex = 0;
@@ -190,6 +187,7 @@
             // 
             // btnShow
             // 
+            this.btnShow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnShow.Location = new System.Drawing.Point(364, 4);
             this.btnShow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnShow.Name = "btnShow";
@@ -201,6 +199,7 @@
             // 
             // btnUpdate
             // 
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.Location = new System.Drawing.Point(364, 132);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
@@ -211,6 +210,7 @@
             // 
             // btnDel
             // 
+            this.btnDel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDel.Location = new System.Drawing.Point(364, 101);
             this.btnDel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDel.Name = "btnDel";
@@ -221,6 +221,7 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.Location = new System.Drawing.Point(364, 70);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
@@ -231,6 +232,7 @@
             // 
             // btnReset
             // 
+            this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReset.Location = new System.Drawing.Point(364, 38);
             this.btnReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReset.Name = "btnReset";
@@ -261,7 +263,7 @@
             // tourTel
             // 
             this.tourTel.BackColor = System.Drawing.SystemColors.Control;
-            this.tourTel.Location = new System.Drawing.Point(99, 104);
+            this.tourTel.Location = new System.Drawing.Point(98, 101);
             this.tourTel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tourTel.Name = "tourTel";
             this.tourTel.Size = new System.Drawing.Size(207, 25);
@@ -270,7 +272,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 107);
+            this.label4.Location = new System.Drawing.Point(26, 104);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 3;
@@ -279,7 +281,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 173);
+            this.label3.Location = new System.Drawing.Point(26, 173);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 15);
             this.label3.TabIndex = 5;
@@ -288,7 +290,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 76);
+            this.label2.Location = new System.Drawing.Point(26, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 15);
             this.label2.TabIndex = 2;
@@ -297,7 +299,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 45);
+            this.label1.Location = new System.Drawing.Point(26, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 1;
@@ -306,7 +308,7 @@
             // tourAddress
             // 
             this.tourAddress.BackColor = System.Drawing.SystemColors.Control;
-            this.tourAddress.Location = new System.Drawing.Point(99, 70);
+            this.tourAddress.Location = new System.Drawing.Point(98, 66);
             this.tourAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tourAddress.Name = "tourAddress";
             this.tourAddress.Size = new System.Drawing.Size(207, 25);
@@ -315,7 +317,7 @@
             // tourName
             // 
             this.tourName.BackColor = System.Drawing.SystemColors.Control;
-            this.tourName.Location = new System.Drawing.Point(99, 35);
+            this.tourName.Location = new System.Drawing.Point(98, 34);
             this.tourName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tourName.Name = "tourName";
             this.tourName.Size = new System.Drawing.Size(207, 25);
@@ -324,7 +326,7 @@
             // tourNum
             // 
             this.tourNum.BackColor = System.Drawing.SystemColors.Control;
-            this.tourNum.Location = new System.Drawing.Point(99, 3);
+            this.tourNum.Location = new System.Drawing.Point(98, 5);
             this.tourNum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tourNum.Name = "tourNum";
             this.tourNum.Size = new System.Drawing.Size(207, 25);
@@ -349,30 +351,13 @@
             // tourSearch
             // 
             this.tourSearch.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tourSearch.Location = new System.Drawing.Point(599, 10);
+            this.tourSearch.Location = new System.Drawing.Point(521, 9);
             this.tourSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tourSearch.Name = "tourSearch";
             this.tourSearch.Size = new System.Drawing.Size(379, 25);
             this.tourSearch.TabIndex = 6;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(1005, 9);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(68, 26);
-            this.btnSearch.TabIndex = 7;
-            this.btnSearch.Text = "搜索";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(496, 14);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 15);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "景点名称查询";
+            this.tourSearch.Text = "景点名称查询";
+            this.tourSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.viewMouseClick);
             // 
             // tabPage2
             // 
@@ -387,7 +372,6 @@
             this.tabPage2.Size = new System.Drawing.Size(1173, 619);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "导游管理";
-           // this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // panel3
             // 
@@ -399,14 +383,14 @@
             this.panel3.Controls.Add(this.btnDel2);
             this.panel3.Controls.Add(this.btnAdd2);
             this.panel3.Controls.Add(this.btnReset2);
-            this.panel3.Controls.Add(this.label20);
+            this.panel3.Controls.Add(this.lblempAge);
             this.panel3.Controls.Add(this.empWorkAge);
             this.panel3.Controls.Add(this.empSex);
             this.panel3.Controls.Add(this.empName);
             this.panel3.Controls.Add(this.empID);
-            this.panel3.Controls.Add(this.label19);
-            this.panel3.Controls.Add(this.label17);
-            this.panel3.Controls.Add(this.label16);
+            this.panel3.Controls.Add(this.lblEmpSex);
+            this.panel3.Controls.Add(this.lblempName);
+            this.panel3.Controls.Add(this.lblempID);
             this.panel3.Location = new System.Drawing.Point(11, 8);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
@@ -415,6 +399,7 @@
             // 
             // btnShow2
             // 
+            this.btnShow2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnShow2.Location = new System.Drawing.Point(324, 10);
             this.btnShow2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnShow2.Name = "btnShow2";
@@ -445,6 +430,7 @@
             // 
             // empVisitor
             // 
+            this.empVisitor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.empVisitor.Location = new System.Drawing.Point(324, 64);
             this.empVisitor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.empVisitor.Name = "empVisitor";
@@ -456,6 +442,7 @@
             // 
             // btnUpdate2
             // 
+            this.btnUpdate2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate2.Location = new System.Drawing.Point(491, 120);
             this.btnUpdate2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate2.Name = "btnUpdate2";
@@ -466,6 +453,7 @@
             // 
             // btnDel2
             // 
+            this.btnDel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDel2.Location = new System.Drawing.Point(491, 64);
             this.btnDel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDel2.Name = "btnDel2";
@@ -476,6 +464,7 @@
             // 
             // btnAdd2
             // 
+            this.btnAdd2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd2.Location = new System.Drawing.Point(324, 120);
             this.btnAdd2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd2.Name = "btnAdd2";
@@ -486,6 +475,7 @@
             // 
             // btnReset2
             // 
+            this.btnReset2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReset2.Location = new System.Drawing.Point(491, 10);
             this.btnReset2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReset2.Name = "btnReset2";
@@ -495,14 +485,14 @@
             this.btnReset2.UseVisualStyleBackColor = true;
             this.btnReset2.Click += new System.EventHandler(this.btnReset2_Click);
             // 
-            // label20
+            // lblempAge
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(19, 105);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(37, 15);
-            this.label20.TabIndex = 8;
-            this.label20.Text = "工龄";
+            this.lblempAge.AutoSize = true;
+            this.lblempAge.Location = new System.Drawing.Point(19, 105);
+            this.lblempAge.Name = "lblempAge";
+            this.lblempAge.Size = new System.Drawing.Size(37, 15);
+            this.lblempAge.TabIndex = 8;
+            this.lblempAge.Text = "工龄";
             // 
             // empWorkAge
             // 
@@ -540,32 +530,32 @@
             this.empID.Size = new System.Drawing.Size(164, 25);
             this.empID.TabIndex = 0;
             // 
-            // label19
+            // lblEmpSex
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(19, 74);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(37, 15);
-            this.label19.TabIndex = 3;
-            this.label19.Text = "性别";
+            this.lblEmpSex.AutoSize = true;
+            this.lblEmpSex.Location = new System.Drawing.Point(19, 74);
+            this.lblEmpSex.Name = "lblEmpSex";
+            this.lblEmpSex.Size = new System.Drawing.Size(37, 15);
+            this.lblEmpSex.TabIndex = 3;
+            this.lblEmpSex.Text = "性别";
             // 
-            // label17
+            // lblempName
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(19, 42);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(37, 15);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "姓名";
+            this.lblempName.AutoSize = true;
+            this.lblempName.Location = new System.Drawing.Point(19, 42);
+            this.lblempName.Name = "lblempName";
+            this.lblempName.Size = new System.Drawing.Size(37, 15);
+            this.lblempName.TabIndex = 1;
+            this.lblempName.Text = "姓名";
             // 
-            // label16
+            // lblempID
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(19, 14);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(37, 15);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "工号";
+            this.lblempID.AutoSize = true;
+            this.lblempID.Location = new System.Drawing.Point(19, 14);
+            this.lblempID.Name = "lblempID";
+            this.lblempID.Size = new System.Drawing.Size(37, 15);
+            this.lblempID.TabIndex = 0;
+            this.lblempID.Text = "工号";
             // 
             // label15
             // 
@@ -592,12 +582,11 @@
             // 
             this.tabPage3.BackColor = System.Drawing.Color.Transparent;
             this.tabPage3.Controls.Add(this.lblhotel_num);
-            this.tabPage3.Controls.Add(this.hotelNum);
             this.tabPage3.Controls.Add(this.dataGridView2);
             this.tabPage3.Controls.Add(this.panel2);
+            this.tabPage3.Controls.Add(this.hotelNum);
             this.tabPage3.Controls.Add(this.btnSearch3);
             this.tabPage3.Controls.Add(this.hotelSearch);
-            this.tabPage3.Controls.Add(this.label9);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage3.Name = "tabPage3";
@@ -661,11 +650,12 @@
             this.panel2.Location = new System.Drawing.Point(8, 15);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(479, 166);
+            this.panel2.Size = new System.Drawing.Size(479, 161);
             this.panel2.TabIndex = 2;
             // 
             // btnShow3
             // 
+            this.btnShow3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnShow3.Location = new System.Drawing.Point(364, 40);
             this.btnShow3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnShow3.Name = "btnShow3";
@@ -678,7 +668,7 @@
             // hotelView
             // 
             this.hotelView.BackColor = System.Drawing.SystemColors.Control;
-            this.hotelView.Location = new System.Drawing.Point(99, 138);
+            this.hotelView.Location = new System.Drawing.Point(99, 131);
             this.hotelView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.hotelView.Name = "hotelView";
             this.hotelView.Size = new System.Drawing.Size(207, 25);
@@ -687,7 +677,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(25, 141);
+            this.label7.Location = new System.Drawing.Point(26, 134);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 15);
@@ -696,6 +686,7 @@
             // 
             // btnUpdate3
             // 
+            this.btnUpdate3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate3.Location = new System.Drawing.Point(364, 71);
             this.btnUpdate3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate3.Name = "btnUpdate3";
@@ -707,6 +698,7 @@
             // 
             // btnDel3
             // 
+            this.btnDel3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDel3.Location = new System.Drawing.Point(364, 104);
             this.btnDel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDel3.Name = "btnDel3";
@@ -718,6 +710,7 @@
             // 
             // btnReset3
             // 
+            this.btnReset3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReset3.Location = new System.Drawing.Point(364, 8);
             this.btnReset3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReset3.Name = "btnReset3";
@@ -738,7 +731,7 @@
             // hotelGrade
             // 
             this.hotelGrade.BackColor = System.Drawing.SystemColors.Control;
-            this.hotelGrade.Location = new System.Drawing.Point(99, 106);
+            this.hotelGrade.Location = new System.Drawing.Point(99, 99);
             this.hotelGrade.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.hotelGrade.Name = "hotelGrade";
             this.hotelGrade.Size = new System.Drawing.Size(207, 25);
@@ -747,7 +740,7 @@
             // hotelAddress
             // 
             this.hotelAddress.BackColor = System.Drawing.SystemColors.Control;
-            this.hotelAddress.Location = new System.Drawing.Point(99, 74);
+            this.hotelAddress.Location = new System.Drawing.Point(99, 66);
             this.hotelAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.hotelAddress.Name = "hotelAddress";
             this.hotelAddress.Size = new System.Drawing.Size(207, 25);
@@ -756,7 +749,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(25, 45);
+            this.label11.Location = new System.Drawing.Point(26, 38);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(67, 15);
             this.label11.TabIndex = 6;
@@ -765,7 +758,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(26, 109);
+            this.label12.Location = new System.Drawing.Point(25, 102);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(67, 15);
             this.label12.TabIndex = 5;
@@ -774,7 +767,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(26, 76);
+            this.label13.Location = new System.Drawing.Point(26, 69);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(67, 15);
             this.label13.TabIndex = 4;
@@ -792,7 +785,7 @@
             // hotelTel
             // 
             this.hotelTel.BackColor = System.Drawing.SystemColors.Control;
-            this.hotelTel.Location = new System.Drawing.Point(99, 40);
+            this.hotelTel.Location = new System.Drawing.Point(99, 35);
             this.hotelTel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.hotelTel.Name = "hotelTel";
             this.hotelTel.Size = new System.Drawing.Size(207, 25);
@@ -809,32 +802,26 @@
             // 
             // btnSearch3
             // 
-            this.btnSearch3.Location = new System.Drawing.Point(979, 17);
+            this.btnSearch3.BackgroundImage = global::旅行社资源管理系统.Properties.Resources.无标题1;
+            this.btnSearch3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch3.Location = new System.Drawing.Point(882, 19);
             this.btnSearch3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch3.Name = "btnSearch3";
-            this.btnSearch3.Size = new System.Drawing.Size(68, 26);
+            this.btnSearch3.Size = new System.Drawing.Size(29, 26);
             this.btnSearch3.TabIndex = 7;
-            this.btnSearch3.Text = "搜索";
             this.btnSearch3.UseVisualStyleBackColor = true;
             this.btnSearch3.Click += new System.EventHandler(this.btnSearch3_Click);
             // 
             // hotelSearch
             // 
             this.hotelSearch.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.hotelSearch.Location = new System.Drawing.Point(596, 19);
+            this.hotelSearch.Location = new System.Drawing.Point(515, 19);
             this.hotelSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.hotelSearch.Name = "hotelSearch";
             this.hotelSearch.Size = new System.Drawing.Size(361, 25);
             this.hotelSearch.TabIndex = 6;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(493, 22);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(97, 15);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "酒店名称查询";
+            this.hotelSearch.Text = "酒店名称查询";
+            this.hotelSearch.MouseClick += new System.Windows.Forms.MouseEventHandler(this.hotelMouseClick);
             // 
             // statusStrip1
             // 
@@ -865,6 +852,17 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackgroundImage = global::旅行社资源管理系统.Properties.Resources.无标题1;
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.Location = new System.Drawing.Point(906, 8);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(30, 26);
+            this.btnSearch.TabIndex = 7;
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // F_Main
             // 
@@ -925,7 +923,6 @@
         private System.Windows.Forms.TextBox tourName;
         private System.Windows.Forms.TextBox tourNum;
         private System.Windows.Forms.TextBox tourSearch;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDel;
@@ -933,7 +930,6 @@
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox hotelSearch;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnSearch3;
         private System.Windows.Forms.Button btnUpdate3;
         private System.Windows.Forms.Button btnDel3;
@@ -951,14 +947,14 @@
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lblempAge;
         private System.Windows.Forms.TextBox empWorkAge;
         private System.Windows.Forms.TextBox empSex;
         private System.Windows.Forms.TextBox empName;
         private System.Windows.Forms.TextBox empID;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblEmpSex;
+        private System.Windows.Forms.Label lblempName;
+        private System.Windows.Forms.Label lblempID;
         private System.Windows.Forms.Button btnUpdate2;
         private System.Windows.Forms.Button btnDel2;
         private System.Windows.Forms.Button btnAdd2;

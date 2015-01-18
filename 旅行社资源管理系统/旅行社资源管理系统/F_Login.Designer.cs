@@ -69,7 +69,7 @@
             this.panel1.Controls.Add(this.lblAccoount);
             this.panel1.Location = new System.Drawing.Point(27, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(705, 40);
+            this.panel1.Size = new System.Drawing.Size(716, 40);
             this.panel1.TabIndex = 1;
             // 
             // btnReset

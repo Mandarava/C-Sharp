@@ -15,7 +15,7 @@ namespace 旅行社资源管理系统
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new F_Main());
+            Application.Run(new F_Login());
         }
     }
 }

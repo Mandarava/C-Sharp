@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 
@@ -15,6 +16,7 @@ namespace 旅行社资源管理系统
         private SqlConnection con;
         private SqlCommand sqlCommand;
         public static string ID;
+
         public F_Login()
         {
             InitializeComponent();
@@ -32,7 +34,7 @@ namespace 旅行社资源管理系统
 
         public void ClrText(Control ctrlTop)
         {
-            if (ctrlTop.GetType() == typeof(TextBox))
+            if (ctrlTop.GetType() == typeof (TextBox))
                 ctrlTop.Text = "";
             else
             {
@@ -42,17 +44,19 @@ namespace 旅行社资源管理系统
                 }
             }
         }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             ID = txtAccount.Text;
-           // con = new SqlConnection("Server=.;Initial Catalog=TRMS;Integrated Security=SSPI");
+            // con = new SqlConnection("Server=.;Initial Catalog=TRMS;Integrated Security=SSPI");
             con = new SqlConnection("Data source=localhost;User ID=sa;password=123456789;Initial Catalog=TRMS");
             int count = 0;
             try
             {
                 string sql =
-                    "select COUNT(*) from account2 where account_ID='" + txtAccount.Text + "'" + "and account_password='" +
-                    txtPwd.Text + "'";
+                    "select COUNT(*) from account2 where account_ID='" + txtAccount.Text + "'" +
+                    "and account_password='" +
+                    UserMd5(txtPwd.Text) + "'";
                 con.Open();
                 sqlCommand = new SqlCommand(sql, con);
                 count = Convert.ToInt32(sqlCommand.ExecuteScalar());
@@ -76,6 +80,21 @@ namespace 旅行社资源管理系统
                 F_Main f_main = new F_Main();
                 f_main.ShowDialog();
             }
+        }
+
+        static string UserMd5(string str)
+        {
+            string cl = str;
+            string pwd = "";
+            MD5 md5 = MD5.Create();//实例化一个md5对像
+            // 加密后是一个字节类型的数组，这里要注意编码UTF8/Unicode等的选择　
+            byte[] s = md5.ComputeHash(Encoding.UTF8.GetBytes(cl));
+            // 通过使用循环，将字节类型的数组转换为字符串，此字符串是常规字符格式化所得
+            for (int i = 0; i < s.Length; i++)
+            {
+                pwd = pwd + s[i].ToString("x2");
+            }
+            return pwd;
         }
     }
 }

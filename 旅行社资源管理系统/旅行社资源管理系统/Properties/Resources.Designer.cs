@@ -66,5 +66,19 @@ namespace 旅行社资源管理系统.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap 无标题 {
+            get {
+                object obj = ResourceManager.GetObject("无标题", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap 无标题1 {
+            get {
+                object obj = ResourceManager.GetObject("无标题1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

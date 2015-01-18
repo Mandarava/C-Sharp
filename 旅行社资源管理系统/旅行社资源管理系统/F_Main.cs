@@ -20,8 +20,10 @@ namespace 旅行社资源管理系统
 
         private string account;
         private string authority = "0";
+
         private SqlConnection con =
             new SqlConnection("Data source=localhost;User ID=sa;password=123456789;Initial Catalog=TRMS");
+
         //  private SqlConnection con = new SqlConnection("Server=.;Initial Catalog=TRMS;Integrated Security=SSPI");
         private DataSet dataSet;
         private SqlDataAdapter sqlDataAdapter;
@@ -30,7 +32,7 @@ namespace 旅行社资源管理系统
 
         private void F_Main_Load(object sender, EventArgs e)
         {
-            account = F_Login.ID;                           //根据不同用户加载界面
+            account = F_Login.ID; //根据不同用户加载界面
             try
             {
                 string sql =
@@ -78,9 +80,14 @@ namespace 旅行社资源管理系统
         private void btnShow3_Click(object sender, EventArgs e)
         {
             string strsql = "SELECT * FROM hotel_scene";
-            string[] HeaderText = { "酒店名字", "联系电话", "酒店地址", "酒店星级", "所属景点" };
+            string[] HeaderText = {"酒店名字", "联系电话", "酒店地址", "酒店星级", "所属景点"};
             string tableName = "hotel_scene";
-            show_dataGridView(strsql,tableName,HeaderText);
+            show_dataGridView(strsql, tableName, HeaderText);
+        }
+
+        private void hotelMouseClick(object sender, MouseEventArgs e)
+        {
+            hotelSearch.Text = "";
         }
 
         private void CellClick(object sender, DataGridViewCellEventArgs e)
@@ -91,6 +98,7 @@ namespace 旅行社资源管理系统
         private void btnReset3_Click(object sender, EventArgs e)
         {
             ClrText(this);
+            hotelNum.Text = "";
         }
 
         private void btnDel3_Click(object sender, EventArgs e)
@@ -136,7 +144,7 @@ namespace 旅行社资源管理系统
             else
             {
                 string strsql = "select * from hotel_scene where hotel_name like '%" + hotelSearch.Text + "%'";
-                string[] HeaderText = { "酒店名字", "联系电话", "酒店地址", "酒店星级", "所属景点" };
+                string[] HeaderText = {"酒店名字", "联系电话", "酒店地址", "酒店星级", "所属景点"};
                 string tableName = "hotel_scene";
                 show_dataGridView(strsql, tableName, HeaderText);
                 showDetails();
@@ -163,7 +171,7 @@ namespace 旅行社资源管理系统
         {
             List<Control> textboxList = new List<Control>();
             foreach (Control ctrl in tabControl1.TabPages[tabControl1.SelectedIndex].Controls)
-               // foreach (Control ctrl in tabPage3.Controls)
+                // foreach (Control ctrl in tabPage3.Controls)
             {
                 foreach (Control textboxControl in ctrl.Controls)
                 {
@@ -186,13 +194,13 @@ namespace 旅行社资源管理系统
                 sqlCommand.ExecuteReader();
                 con.Close();
                 dataSet = new DataSet();
-                sqlDataAdapter.Fill(dataSet,tableName);
+                sqlDataAdapter.Fill(dataSet, tableName);
                 List<Control> strList = getDatagridControls();
-                DataGridView f = (DataGridView)strList[tabControl1.SelectedIndex];               
+                DataGridView f = (DataGridView) strList[tabControl1.SelectedIndex];
                 f.DataSource = dataSet;
-                f.DataMember =tableName; 
-                int a = f.Columns.Count;      
-                f.ScrollBars=ScrollBars.Both;
+                f.DataMember = tableName;
+                int a = f.Columns.Count;
+                f.ScrollBars = ScrollBars.Both;
                 for (int i = 0; i < a; i++)
                 {
                     f.Columns[i].HeaderText = HeaderText[i];
@@ -212,7 +220,7 @@ namespace 旅行社资源管理系统
         {
             List<Control> strList = getDatagridControls();
             DataGridView f = (DataGridView) strList[tabControl1.SelectedIndex];
-            int columnsCount = f.Columns.Count;  //获取数据的列数
+            int columnsCount = f.Columns.Count; //获取数据的列数
             int a = f.CurrentRow.Index;
             List<Control> textboxList = getTextControls();
             int textIndex = columnsCount - 1;
@@ -248,14 +256,10 @@ namespace 旅行社资源管理系统
 
         public void ClrText(Control ctrlTop) //清空文本框
         {
-            if (ctrlTop.GetType() == typeof (TextBox))
-                ctrlTop.Text = "";
-            else
+            List<Control> ctrlList = getTextControls();
+            for (int i = 0; i < ctrlList.Count; i++)
             {
-                foreach (Control ctrl in ctrlTop.Controls)
-                {
-                    ClrText(ctrl);
-                }
+                ctrlList[i].Text = "";
             }
         }
 
@@ -269,7 +273,7 @@ namespace 旅行社资源管理系统
         private void btnShow_Click(object sender, EventArgs e)
         {
             string tableName = "scene";
-            string[] HeaderText = { "景点编号", "景点名字", "景点地址", "联系电话", "城市", "门票价格" };
+            string[] HeaderText = {"景点编号", "景点名字", "景点地址", "联系电话", "城市", "门票价格"};
             string strsql = "SELECT * FROM scene";
             show_dataGridView(strsql, tableName, HeaderText);
         }
@@ -279,9 +283,10 @@ namespace 旅行社资源管理系统
             showDetails();
         }
 
-
-
-
+        private void viewMouseClick(object sender, MouseEventArgs e)
+        {
+            tourSearch.Text = "";
+        }
 
         //导游管理
         private void btnReset2_Click(object sender, EventArgs e)
@@ -294,7 +299,7 @@ namespace 旅行社资源管理系统
             string tableName = "guide_scene";
             string[] HeaderText = {"工号", "名字", "性别", "工龄", "负责景点"};
             string strsql = "select * from guide_scene";
-            show_dataGridView(strsql,tableName,HeaderText);
+            show_dataGridView(strsql, tableName, HeaderText);
         }
 
         private void guide_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -306,10 +311,8 @@ namespace 旅行社资源管理系统
         {
             string tableName = "tourist_guide";
             string[] HeaderText = {"游客名字", "游客电话", "游客性别", "游客景点"};
-            string strsql = "select * from tourist_guide where view_name='"+guide_view.Text+"'";
-            show_dataGridView(strsql,tableName,HeaderText);
+            string strsql = "select * from tourist_guide where view_name='" + guide_view.Text + "'";
+            show_dataGridView(strsql, tableName, HeaderText);
         }
-
-
     }
 }
