@@ -121,11 +121,11 @@
             // lblAccoount
             // 
             this.lblAccoount.AutoSize = true;
-            this.lblAccoount.Location = new System.Drawing.Point(3, 10);
+            this.lblAccoount.Location = new System.Drawing.Point(30, 9);
             this.lblAccoount.Name = "lblAccoount";
-            this.lblAccoount.Size = new System.Drawing.Size(82, 15);
+            this.lblAccoount.Size = new System.Drawing.Size(37, 15);
             this.lblAccoount.TabIndex = 0;
-            this.lblAccoount.Text = "管理员帐号";
+            this.lblAccoount.Text = "账号";
             // 
             // statusStrip1
             // 

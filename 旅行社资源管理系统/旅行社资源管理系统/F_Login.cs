@@ -48,8 +48,8 @@ namespace 旅行社资源管理系统
         private void btnLogin_Click(object sender, EventArgs e)
         {
             ID = txtAccount.Text;
-             con = new SqlConnection("Server=.;Initial Catalog=TRMS;Integrated Security=SSPI");
-            //con = new SqlConnection("Data source=localhost;User ID=sa;password=123456789;Initial Catalog=TRMS");
+            // con = new SqlConnection("Server=.;Initial Catalog=TRMS;Integrated Security=SSPI");
+            con = new SqlConnection("Data source=localhost;User ID=sa;password=123456789;Initial Catalog=TRMS");
             int count = 0;
             try
             {
