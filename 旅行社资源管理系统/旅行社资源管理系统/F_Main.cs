@@ -8,26 +8,29 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Runtime.Remoting.Messaging;
+using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+
 namespace 旅行社资源管理系统
 {
-    public partial class F_Main : Form
+    public partial class addAdmin : Form
     {
-        public F_Main()
+        public addAdmin()
         {
             InitializeComponent();
         }
 
         private string account;
         private string authority = "0";
+        public static string view_num;
 
-        private SqlConnection con =
-            new SqlConnection("Data source=localhost;User ID=sa;password=123456789;Initial Catalog=TRMS");
+       // private SqlConnection con =
+           // new SqlConnection("Data source=localhost;User ID=sa;password=123456789;Initial Catalog=TRMS");
 
-        // private SqlConnection con = new SqlConnection("Server=.;Initial Catalog=TRMS;Integrated Security=SSPI");
+        private SqlConnection con = new SqlConnection("Server=.;Initial Catalog=TRMS;Integrated Security=SSPI");
         private DataSet dataSet;
         private SqlDataAdapter sqlDataAdapter;
         private SqlDataReader sqlDataReader;
@@ -69,12 +72,23 @@ namespace 旅行社资源管理系统
                 button1.Visible = false;
                 btnAdd2.Visible = false;
                 empVisitor.Visible = false;
+                panel4.Visible = false;
+                btnUpdate2.Visible = false;
+                dataGridView4.Visible = false;
+                button3.Visible = true;
+                tabPage4.Text = "";
                 btnShow2.Text = "我的导游";
                 //TabPage tp = new TabPage();         //隐藏导游管理tabpage
                 //tp = this.tabControl1.TabPages[1];
                 //this.tabControl1.TabPages.Remove(tp);
             }
-            btnUpdate2.Visible = false;
+            else if (authority == "1")
+            {
+                panel4.Visible = false;
+                dataGridView4.Visible = false;
+                tabPage4.Text = "";
+            }
+
             string var = GetWeather();
             this.toolStripStatusLabel3.Text = var;
         }
@@ -146,8 +160,13 @@ namespace 旅行社资源管理系统
             {
                 MessageBox.Show("请输入酒店编号！");
             }
-            string sqlstr = string.Format("EXECUTE proc_hotelByAllDelete {0}", hotelNum.Text);
-            SqlOperation(sqlstr);
+            MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
+            DialogResult dr = MessageBox.Show("确定执行？", "取消", messButton);
+            if (dr == DialogResult.OK)
+            {
+                string sqlstr = string.Format("EXECUTE proc_hotelByAllDelete {0}", hotelNum.Text);
+                SqlOperation(sqlstr);
+            }
         }
 
         private void btnUpdate3_Click(object sender, EventArgs e)
@@ -222,7 +241,7 @@ namespace 旅行社资源管理系统
         private List<Control> getDatagridControls()
         {
             List<Control> strList = new List<Control>();
-            foreach (Control ctrl in tabControl1.Controls)
+            foreach (Control ctrl in btnShowUser.Controls)
             {
                 foreach (Control datagridControl in ctrl.Controls)
                 {
@@ -238,7 +257,7 @@ namespace 旅行社资源管理系统
         private List<Control> getTextControls()
         {
             List<Control> textboxList = new List<Control>();
-            foreach (Control ctrl in tabControl1.TabPages[tabControl1.SelectedIndex].Controls)
+            foreach (Control ctrl in btnShowUser.TabPages[btnShowUser.SelectedIndex].Controls)
                 // foreach (Control ctrl in tabPage3.Controls)
             {
                 foreach (Control textboxControl in ctrl.Controls)
@@ -264,7 +283,7 @@ namespace 旅行社资源管理系统
                 dataSet = new DataSet();
                 sqlDataAdapter.Fill(dataSet, tableName);
                 List<Control> strList = getDatagridControls();
-                DataGridView f = (DataGridView) strList[tabControl1.SelectedIndex];
+                DataGridView f = (DataGridView) strList[btnShowUser.SelectedIndex];
                 f.DataSource = dataSet;
                 f.DataMember = tableName;
                 int a = f.Columns.Count;
@@ -287,7 +306,7 @@ namespace 旅行社资源管理系统
         private void showDetails()
         {
             List<Control> strList = getDatagridControls();
-            DataGridView f = (DataGridView) strList[tabControl1.SelectedIndex];
+            DataGridView f = (DataGridView) strList[btnShowUser.SelectedIndex];
             int columnsCount = f.Columns.Count; //获取数据的列数
             int a = f.CurrentRow.Index;
             List<Control> textboxList = getTextControls();
@@ -300,7 +319,7 @@ namespace 旅行社资源管理系统
             }
         }
 
-        private void SqlOperation(string sqlstr)
+        public void SqlOperation(string sqlstr)
         {
             con.Open();
             try
@@ -362,8 +381,13 @@ namespace 旅行社资源管理系统
             {
                 MessageBox.Show("请输入景点编号！");
             }
-            string sqlstr = string.Format("EXECUTE proc_sceneByAllDelete {0}", tourNum.Text);
-            SqlOperation(sqlstr);
+            MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
+            DialogResult dr = MessageBox.Show("确定执行？", "取消", messButton);
+            if (dr == DialogResult.OK)
+            {
+                string sqlstr = string.Format("EXECUTE proc_sceneByAllDelete {0}", tourNum.Text);
+                SqlOperation(sqlstr);
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -425,6 +449,10 @@ namespace 旅行社资源管理系统
 
         private void btnShow2_Click(object sender, EventArgs e)
         {
+            empID.Visible = true;
+            lblempID.Visible = true;
+            lblEmpSex.Text = "性别";
+            lblempAge.Text = "工龄";
             if (authority == "0")
             {
                 string tableName = "guide_scene";
@@ -452,6 +480,10 @@ namespace 旅行社资源管理系统
             string[] HeaderText = {"游客名字", "游客电话", "游客性别", "游客景点"};
             string strsql = string.Format("EXECUTE proc_tourist_guideByALLSelect '{0}'", guide_view.Text);
             show_dataGridView(strsql, tableName, HeaderText);
+            empID.Visible = false;
+            lblempID.Visible = false;
+            lblEmpSex.Text = "电话";
+            lblempAge.Text = "性别";
         }
 
         private void btnUpdate2_Click(object sender, EventArgs e)
@@ -492,8 +524,13 @@ namespace 旅行社资源管理系统
             {
                 MessageBox.Show("请输入工号！");
             }
-            string sqlstr = string.Format("EXECUTE proc_guideByjob_IDDelete {0}", empID.Text);
-            SqlOperation(sqlstr);
+            MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
+            DialogResult dr = MessageBox.Show("确定执行？", "取消", messButton);
+            if (dr == DialogResult.OK)
+            {
+                string sqlstr = string.Format("EXECUTE proc_guideByjob_IDDelete {0}", empID.Text);
+                SqlOperation(sqlstr);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -502,6 +539,76 @@ namespace 旅行社资源管理系统
             string[] HeaderText = {"游客号", "游客名字", "联系电话", "性别", "景点号"};
             string strsql = string.Format("execute proc_touristByAllSelect ");
             show_dataGridView(strsql, tableName, HeaderText);
+        }
+
+
+        private void btnShowAdmin2_Click(object sender, EventArgs e)
+        {
+            string tableName = "account";
+            string[] HeaderText = {"账户", "密码", "账户权限信息"};
+            string strsql = string.Format("select * from account");
+            show_dataGridView(strsql, tableName, HeaderText);
+        }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            if (txtAuthority.Text == "1" || txtAuthority.Text == "0")
+            {
+                string strsql = string.Format("insert into account values ('{0}','{1}','{2}')", txtUser.Text,
+                    UserMd5(txtPwd.Text), txtAuthority.Text);
+                SqlOperation(strsql);
+            }
+            else
+            {
+                MessageBox.Show("1 为管理员账户， 0为一般用户  其余无效！");
+            }
+        }
+
+        private void btnDelUser_Click(object sender, EventArgs e)
+        {
+            if (txtUser.Text == null)
+            {
+                MessageBox.Show("请输入账号！");
+            }
+            MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
+            DialogResult dr = MessageBox.Show("确定执行？", "取消", messButton);
+            if (dr == DialogResult.OK)
+            {
+                string strsql = string.Format("delete from account where account_ID='{0}'", txtUser.Text);
+                SqlOperation(strsql);
+            }
+        }
+
+        public static string UserMd5(string str)
+        {
+            string cl = str;
+            string pwd = "";
+            MD5 md5 = MD5.Create(); //实例化一个md5对像
+            // 加密后是一个字节类型的数组，这里要注意编码UTF8/Unicode等的选择　
+            byte[] s = md5.ComputeHash(Encoding.UTF8.GetBytes(cl));
+            // 通过使用循环，将字节类型的数组转换为字符串，此字符串是常规字符格式化所得
+            for (int i = 0; i < s.Length; i++)
+            {
+                pwd = pwd + s[i].ToString("x2");
+            }
+            return pwd;
+        }
+
+        private void userCellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            showDetails();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ClrText(this);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            view_num = tourNum.Text;
+            addInfo add = new addInfo();
+            add.Show();
         }
     }
 }

@@ -41,6 +41,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnRegisiter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -61,6 +62,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnRegisiter);
             this.panel1.Controls.Add(this.btnReset);
             this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.txtPwd);
@@ -69,7 +71,7 @@
             this.panel1.Controls.Add(this.lblAccoount);
             this.panel1.Location = new System.Drawing.Point(27, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(716, 40);
+            this.panel1.Size = new System.Drawing.Size(784, 40);
             this.panel1.TabIndex = 1;
             // 
             // btnReset
@@ -156,6 +158,16 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnRegisiter
+            // 
+            this.btnRegisiter.Location = new System.Drawing.Point(695, 6);
+            this.btnRegisiter.Name = "btnRegisiter";
+            this.btnRegisiter.Size = new System.Drawing.Size(69, 23);
+            this.btnRegisiter.TabIndex = 6;
+            this.btnRegisiter.Text = "注册";
+            this.btnRegisiter.UseVisualStyleBackColor = true;
+            this.btnRegisiter.Click += new System.EventHandler(this.btnRegisiter_Click);
+            // 
             // F_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -191,6 +203,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnRegisiter;
     }
 }
 

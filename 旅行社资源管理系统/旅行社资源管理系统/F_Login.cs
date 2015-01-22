@@ -7,13 +7,17 @@ using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace 旅行社资源管理系统
 {
     public partial class F_Login : Form
     {
-        private SqlConnection con;
+       // private SqlConnection con =
+            //new SqlConnection("Data source=localhost;User ID=sa;password=123456789;Initial Catalog=TRMS");
+
+         private SqlConnection con= new SqlConnection("Server=.;Initial Catalog=TRMS;Integrated Security=SSPI");
         private SqlCommand sqlCommand;
         public static string ID;
 
@@ -48,8 +52,6 @@ namespace 旅行社资源管理系统
         private void btnLogin_Click(object sender, EventArgs e)
         {
             ID = txtAccount.Text;
-            // con = new SqlConnection("Server=.;Initial Catalog=TRMS;Integrated Security=SSPI");
-            con = new SqlConnection("Data source=localhost;User ID=sa;password=123456789;Initial Catalog=TRMS");
             int count = 0;
             try
             {
@@ -77,16 +79,16 @@ namespace 旅行社资源管理系统
             else
             {
                 this.Hide();
-                F_Main f_main = new F_Main();
+                addAdmin f_main = new addAdmin();
                 f_main.ShowDialog();
             }
         }
 
-        static string UserMd5(string str)
+        public static string UserMd5(string str)
         {
             string cl = str;
             string pwd = "";
-            MD5 md5 = MD5.Create();//实例化一个md5对像
+            MD5 md5 = MD5.Create(); //实例化一个md5对像
             // 加密后是一个字节类型的数组，这里要注意编码UTF8/Unicode等的选择　
             byte[] s = md5.ComputeHash(Encoding.UTF8.GetBytes(cl));
             // 通过使用循环，将字节类型的数组转换为字符串，此字符串是常规字符格式化所得
@@ -95,6 +97,13 @@ namespace 旅行社资源管理系统
                 pwd = pwd + s[i].ToString("x2");
             }
             return pwd;
+        }
+
+
+        private void btnRegisiter_Click(object sender, EventArgs e)
+        {
+            regisiter reg = new regisiter();
+            reg.Show();
         }
     }
 }
