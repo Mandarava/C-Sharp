@@ -10,14 +10,14 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace 旅行社资源管理系统
+namespace 旅游景点资源管理系统
 {
     public partial class F_Login : Form
     {
-        private SqlConnection con =
-            new SqlConnection("Data source=localhost;User ID=sa;password=123456789;Initial Catalog=TRMS");
+        //private SqlConnection con =
+           // new SqlConnection("Data source=localhost;User ID=sa;password=123456789;Initial Catalog=TRMS");
 
-        // private SqlConnection con= new SqlConnection("Server=.;Initial Catalog=TRMS;Integrated Security=SSPI");
+         private SqlConnection con= new SqlConnection("Server=.;Initial Catalog=TRMS;Integrated Security=SSPI");
         private SqlCommand sqlCommand;
         public static string ID;
 
@@ -79,7 +79,7 @@ namespace 旅行社资源管理系统
             else
             {
                 this.Hide();
-                addAdmin f_main = new addAdmin();
+                F_Main f_main = new F_Main();
                 f_main.ShowDialog();
             }
         }

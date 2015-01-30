@@ -8,8 +8,8 @@
     <ProjectGuid>{04B13716-1F47-4B19-9F81-DFED929E7995}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>旅行社资源管理系统</RootNamespace>
-    <AssemblyName>旅行社资源管理系统</AssemblyName>
+    <RootNamespace>旅游景点资源管理系统</RootNamespace>
+    <AssemblyName>旅游景点资源管理系统</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

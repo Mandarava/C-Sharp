@@ -10,7 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace 旅行社资源管理系统
+namespace 旅游景点资源管理系统
 {
     public partial class regisiter : Form
     {
@@ -19,17 +19,11 @@ namespace 旅行社资源管理系统
             InitializeComponent();
         }
 
-        private SqlConnection con =
-            new SqlConnection("Data source=localhost;User ID=sa;password=123456789;Initial Catalog=TRMS");
+        //private SqlConnection con =
+        //    new SqlConnection("Data source=localhost;User ID=sa;password=123456789;Initial Catalog=TRMS");
 
-        // private SqlConnection con= new SqlConnection("Server=.;Initial Catalog=TRMS;Integrated Security=SSPI");
+        private SqlConnection con= new SqlConnection("Server=.;Initial Catalog=TRMS;Integrated Security=SSPI");
         private SqlCommand sqlCommand;
-
-        public static bool IsMobilePhone(string input) //判断手机号的合法性
-        {
-            Regex regex = new Regex("^[1][3-8]\\d{9}$");
-            return regex.IsMatch(input);
-        }
 
         public static string UserMd5(string str)
         {
@@ -84,7 +78,6 @@ namespace 旅行社资源管理系统
         private void btnreg_Click(object sender, EventArgs e)
         {
             string str = txtRegID.Text.Trim();
-
             if (txtRegPwd.Text != txtPwdVerify.Text)
             {
                 MessageBox.Show("两次输入密码不一致，请重新输入！");
@@ -93,17 +86,9 @@ namespace 旅行社资源管理系统
             }
             else
             {
-                if (IsMobilePhone(str))
-                {
-                    string strsql = string.Format("insert into account values('{0}','{1}','{2}')", str,
-                        UserMd5(txtRegPwd.Text), "0");
-                    SqlOperation(strsql);
-                }
-                else
-                {
-                    MessageBox.Show("输入手机号不合法！请重新输入");
-                    ClrText(this);
-                }
+                string strsql = string.Format("insert into account values('{0}','{1}','{2}')", str,
+                    UserMd5(txtRegPwd.Text), "0");
+                SqlOperation(strsql);
             }
         }
 

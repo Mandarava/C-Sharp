@@ -14,26 +14,56 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 
 
-namespace 旅行社资源管理系统
+namespace 旅游景点资源管理系统
 {
-    public partial class addAdmin : Form
+    public partial class F_Main : Form
     {
-        public addAdmin()
+        public F_Main()
         {
             InitializeComponent();
         }
 
-        private SqlConnection con =
-            new SqlConnection("Data source=localhost;User ID=sa;password=123456789;Initial Catalog=TRMS");
+        //private SqlConnection con =
+        //    new SqlConnection("Data source=localhost;User ID=sa;password=123456789;Initial Catalog=TRMS");
 
-        //private SqlConnection con = new SqlConnection("Server=.;Initial Catalog=TRMS;Integrated Security=SSPI");
+        private SqlConnection con = new SqlConnection("Server=.;Initial Catalog=TRMS;Integrated Security=SSPI");
         private DataSet dataSet;
         private SqlDataAdapter sqlDataAdapter;
         private SqlDataReader sqlDataReader;
         private SqlCommand sqlCommand;
+        private string account;
+        private string authority = "0";
+        //public static string ID;
 
         private void F_Main_Load(object sender, EventArgs e)
         {
+            account = F_Login.ID; //根据不同用户加载界面
+            try
+            {
+                string userID = Convert.ToString(account);
+                string sql = string.Format("EXECUTE proc_accountByaccount_authoritySelect '{0}'", userID);
+                con.Open();
+                sqlCommand = new SqlCommand(sql, con);
+                sqlDataReader = sqlCommand.ExecuteReader();
+                if (sqlDataReader.Read())
+                {
+                    authority = sqlDataReader["account_authority"].ToString().Trim();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            if (authority == "0")
+            {
+                btnAdd.Visible = false;
+                btnDel.Visible = false;
+                btnUpdate.Visible = false;
+            }
             string var = GetWeather(101020100);
             this.toolStripStatusLabel3.Text = var;
         }
@@ -96,7 +126,6 @@ namespace 旅行社资源管理系统
         {
             List<Control> textboxList = new List<Control>();
             foreach (Control ctrl in btnShowUser.TabPages[btnShowUser.SelectedIndex].Controls)
-                // foreach (Control ctrl in tabPage3.Controls)
             {
                 foreach (Control textboxControl in ctrl.Controls)
                 {
@@ -274,14 +303,12 @@ namespace 旅行社资源管理系统
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string strsql = string.Format("EXECUTE proc_scene2ByALLInsert {0},{1},{2},{3},{4},{5},{6},{7}", tourNum.Text,
-                tourName.Text, tourAddress.Text, tourTel.Text, tourCity.Text, tourPrice.Text, childPrice.Text,
-                txtViewIntro.Text);
+            string strsql =
+                string.Format("EXECUTE proc_scene2ByALLInsert '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}'",
+                    tourNum.Text,
+                    tourName.Text, tourAddress.Text, tourTel.Text, tourCity.Text, tourPrice.Text, childPrice.Text,
+                    txtViewIntro.Text);
             SqlOperation(strsql);
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
         }
 
         private void tourNum_TextChanged(object sender, EventArgs e)
@@ -294,6 +321,17 @@ namespace 旅行社资源管理系统
             catch (Exception)
             {
                 picView.Image = Image.FromFile(appPath + @"\picture\error.jpg");
+            }
+        }
+
+        private void addAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
+            DialogResult dr = MessageBox.Show("确定退出？", "取消", messButton);
+            if (dr == DialogResult.OK)
+            {
+                this.Dispose();
+                this.Close();
             }
         }
     }

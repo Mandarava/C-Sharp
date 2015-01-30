@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace 旅行社资源管理系统
+namespace 旅游景点资源管理系统
 {
     static class Program
     {
