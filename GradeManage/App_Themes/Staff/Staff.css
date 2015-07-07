@@ -1,0 +1,170 @@
+﻿/*内容区--外框*/
+.table-out-blue
+ {
+ 	width:100%;
+	background-position: top;
+        padding:3px;
+	background-color:#B1CAD1;}
+
+/*内容区--粗黑文字标题的底色*/
+.tr-title 
+{
+	background-image:url(images/tr_title_bg.gif); height:14px; font-size:14px; white-space: nowrap;table-layout:fixed;
+	}
+
+
+/*内容区--内容--淡色*/
+.tr-info {background-color: #EFF6F8; height: 12px;
+	white-space: nowrap;	
+    font-size: 12px;
+    text-decoration: none;
+    table-layout:fixed;
+    letter-spacing: 0px;
+    line-height:14px;
+    padding-top:0px;
+    padding-bottom:0px;
+    }
+    
+    /*搜索处的框*/		
+.textfield-graborder {background-color: #FFFFFF;
+	border: 1px solid #949494;
+	font-size: 12px;
+	color: #000000;}
+	/*gridview不换行*/
+	#GridView1,#GridView2
+	{
+		word-break:keep-all;word-wrap:normal;
+	}
+/*添加表单的样式*/
+.body2
+{
+	text-align:center;
+	background-image:url(images/bg_openwindow.gif);
+	height: 90%;
+	margin:2px;
+	padding:2px;
+	min-height:90%;
+}
+/*普通页面的样式*/
+.body1
+{
+	text-align:center;
+	height: 90%;
+	margin:2px;
+	padding:2px;
+	min-height:90%;
+	font-family:宋体;
+	font-size:12px;
+}
+body
+{
+	margin:5px;
+	padding:5px;
+	font-size:12px;
+}
+	
+/*弹出窗口－－－黑线以上的标题文字 */	
+.font-tit14 {
+	font-size: 14px;
+	color: #BCFD99;
+	text-decoration: none;
+	line-height: 22px;
+	font-weight: bold;}
+	
+	/*内容区--外框*/
+.table-out-blue {width:90%;
+	background-position: top;
+        padding:3px;
+	background-color:#B1CAD1;}
+	
+	/*内容区--内容--淡色*/
+.tr-info {background-color: #EFF6F8; height: 22px;
+    font-size: 12px;
+    text-decoration: none;
+    letter-spacing: 0px;
+    line-height:20px;}
+    
+    /*弹出窗口--标题*/
+.tr-openwindow-show{background-color: #C0DFE4; height: 22px;
+    font-size: 12px;
+	text-decoration: none;
+    letter-spacing: 1px;
+    line-height:20px;}
+    /*弹出窗口--详细内容--背景色*/
+.tr-openwindow-bgcolor{background-color: #A1D1D8; }
+/*弹出窗口--显示详细资料页面*/	
+.table-out-whiteforshow {width:97%;
+	background-position: top;
+    padding:3px;
+	background-color:#FFFFFF;}
+	/*弹出窗口--详细内容--淡色*/
+.td-openwindow-show{background-color: #DEF0F2; height: 22px;
+    font-size: 12px;
+	text-decoration: none;
+    letter-spacing: 0px;
+    line-height:20px;}
+        
+input
+{
+    border-right: #7f9db9 1px solid; border-top: #7f9db9 1px solid; font-size: 12px; border-left: #7f9db9 1px solid; color: #0f4a69; border-bottom: #7f9db9 1px solid; font-family: 宋体; background-color: #ffffff;
+}
+    
+ /*下拉列表框样式*/   
+    .over{color:#dedede} 
+.out{color:#a7a6aa} 
+.select{ 
+display:none;
+position:absolute;width:100%;
+
+border:#a3a3a3 1px solid;border-top:none;cursor:default; 
+overflow:scroll;overflow-x:hidden; 
+background-color:white;
+scrollbar-face-color:#FFFFFF; 
+scrollbar-shadow-color:#C1C1BB; 
+scrollbar-highlight-color:#C1C1BB; 
+scrollbar-3dlight-color:#EBEBE4; 
+scrollbar-darkshadow-color:#EBEBE4; 
+scrollbar-track-color:#F4F4F0; 
+scrollbar-arrow-color:#CACAB7; 
+} 
+.sel_normal
+{
+	border:1px solid #a7a6aa;
+	cursor:default;
+}
+.option_hover
+{
+	height:16px;
+	background-color:#dedede;
+	color:White;
+}
+.option_out
+{
+	height:16px;
+	background-color:white;
+	color:#4b4b4b;
+}
+.fixedWidth
+{
+	height:16px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap; 
+}
+/*下拉列表框样式*/
+
+/*主页面样式*/
+.div_main_tool
+{
+	text-align:left;
+	margin:0px;
+	padding:5px;
+	width: 98%;
+}
+.div_main_grid
+{
+	margin:0px;
+	padding:0px;
+	text-align:center;
+	width:98%;
+}

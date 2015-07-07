@@ -1,0 +1,7 @@
+﻿
+        <asp:GridView SkinId="GridView" runat="server"  PageSize="10" BorderStyle="None" BorderWidth="0px" CellPadding="0" CellSpacing="1" Width="95%"  CssClass="table-out-blue">
+            <PagerSettings FirstPageImageUrl="~/App_Themes/gridview/images/turn_home.gif" LastPageImageUrl="~/App_Themes/gridview/images/turn_end.gif" NextPageImageUrl="~/App_Themes/gridview/images/turn_next.gif" PageButtonCount="2" PreviousPageImageUrl="~/App_Themes/gridview/images/turn_back.gif" Mode="NextPreviousFirstLast" />
+            <HeaderStyle Font-Names="宋体" HorizontalAlign="Center" VerticalAlign="Middle" CssClass="tr-title" Height="20px"/>
+            <PagerStyle Wrap="False" BackColor="LightBlue" />
+            <RowStyle CssClass="tr-info" />
+</asp:GridView>
