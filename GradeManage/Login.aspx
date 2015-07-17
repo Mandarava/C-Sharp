@@ -9,7 +9,7 @@
     上海应用技术学院教学管理信息系统
 </title>
 <head>
-  
+   <link rel="stylesheet" href="Admin/main.css"/>
     <style type="text/css">
         td {
             font-size: 10pt;
@@ -31,7 +31,7 @@
         </tr>
         <tr>
             <td>
-                <img src="images/head2.jpg" alt="" style="align:center"><br/>
+                <img src="images/head2.jpg" style="margin-left: 57px"><br/>
                 <a href="http://tao.sit.edu.cn/">>>访问教务处主页</a>
             </td>
             <td align="center" width="400">

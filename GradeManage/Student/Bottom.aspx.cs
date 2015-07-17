@@ -8,7 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-//该源码下载自www.51aspx.com(５１ａsｐｘ．ｃｏｍ)
+
 
 public partial class Bottom : System.Web.UI.Page
 {
@@ -16,7 +16,7 @@ public partial class Bottom : System.Web.UI.Page
     {
         try
         {
-            lblStudentName.Text = Session["sname"].ToString();
+            lblStudentName.Text = Session["sn"].ToString();
         }
         catch
         {

@@ -1,0 +1,200 @@
+body, td,th,caption {
+    font-size: 12px;
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.head{
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+    color:white;
+    background:#5079AB;
+}
+
+.pad-left{
+    text-align:left;
+    padding-left:5px;
+}
+
+input.newtext {
+    border: 1px solid black
+}
+
+input.graytext {
+    border: 1px solid black;
+	color:gray;
+}
+
+
+.inputText{
+    border:0px solid #c0c0c0;
+    width:50px;
+}
+
+.head {
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+textarea.newtext {
+    border: 1px solid black;
+    overflow: auto
+}
+
+.error {
+    color: red;
+    text-align: center
+}
+
+.ok {
+    color: green;
+    text-align: center
+}
+
+.msg {
+    color: blue;
+    width: 98%;
+    padding: 5px;
+    font-size: 12px
+}
+
+th.list {
+    background: #5079AB;
+    font-size: 12px;
+    color: white
+}
+
+td.list {
+    text-align: center
+}
+
+input.pageSize {
+    border: none;
+    border-bottom: 1px solid black
+}
+
+span.page {
+    cursor: hand;
+    text-decoration: underline
+}
+
+.button {
+    background: #F2F3F3;
+    border: 1px solid black;
+    filter: progid: DXImageTransform . Microsoft . dropshadow( OffX = 2, OffY = 2, Color = '#cdcdcd', Positive = 'true' )
+}
+
+.shadow {
+    filter: progid: DXImageTransform . Microsoft . dropshadow( OffX = 4, OffY = 4, Color = '#cdcdcd', Positive = 'true' )
+}
+
+a.tab1 {
+    background: lightgrey;
+    color: black;
+    border: 1px solid black;
+    border-bottom: none;
+    padding: 2px;
+    height: 10;
+    text-decoration: none;
+    width1: 110;
+    text-align: center
+}
+
+a.tab1:hover {
+    text-decoration: underline;
+    background: orange;
+    color: black
+}
+
+a.tab2 {
+    background: orange;
+    color: black;
+    border: 1px solid black;
+    border-bottom: none;
+    padding: 3px;
+    height: 10;
+    text-decoration: none;
+    width1: 110;
+    text-align: center
+}
+
+a.nav1 {
+    font-size: 10pt;
+    color: black;
+    text-decoration: none
+}
+
+a.nav1:hover {
+    text-decoration: underline
+}
+
+a.nav2 {
+    font-size: 10pt;
+    color: darkorange;
+    text-decoration: none;
+    font-weight: bold
+}
+
+hr {
+    height: 1px
+}
+
+a.pad1 {
+    font-size: 9pt;
+    background: white;
+    color: black;
+    border: 1px solid black;
+    padding: 6px;
+    text-decoration: none;
+    font-weight: bold
+}
+
+a.pad2 {
+    font-size: 9pt;
+    background: #E9EBED;
+    color: black;
+    border: 1px dotted black;
+    padding: 5px
+}
+
+span.sel {
+    font-size: 9pt;
+    cursor: hand;
+    text-decoration: underline;
+    color: black;
+    font-weight: 1px
+}
+
+a.black {
+    color: black
+}
+
+a.black:hover {
+    color: red
+}
+
+a {
+    color: black
+}
+
+a:hover {
+    color: red
+}
+
+.info {
+    background: infobackground;
+    font-size: 12px;
+    font-family: ?AEIIa;
+    width: 98%;
+    border: 1px dotted black;
+    padding: 8px
+}
+
+
+

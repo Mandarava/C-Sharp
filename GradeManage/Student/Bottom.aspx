@@ -8,7 +8,7 @@
 </head>
 <body leftmargin="0" topmargin="0">
     <form id="form1" runat="server">
-            <TABLE width="100%" height="30" border="0" cellPadding="0" cellSpacing="0" background="Images/bottom_ima.gif">
+            <TABLE width="100%" height="30" border="0" cellPadding="0" cellSpacing="0" background="../Images/bottom_ima.gif">
 		        <TR>
 			        <TD width="14">　</TD>
 			        <TD style="width: 320px">当前用户：<asp:Label ID="lblStudentName" runat="server"></asp:Label>

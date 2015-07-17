@@ -15,7 +15,7 @@ public partial class Bottom : System.Web.UI.Page
     {
         try
         {
-            lblTeacherName.Text = Session["tname"].ToString();
+            lblTeacherName.Text = Session["id"].ToString();
         }
         catch
         {
